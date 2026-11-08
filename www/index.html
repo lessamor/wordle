@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wordle + Define</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="popup" class="popup" role="alert" aria-live="assertive"><div class="popup-title"></div><div class="popup-sub"></div></div>
+  <main>
+    <h1>Wordle + Define</h1>
+    <div class="stats"><span>⭐ Points: <b id="points">0</b></span><span>Round: <b id="round">1</b></span>
+      <button id="sound-btn" class="icon-btn" aria-label="Toggle sound" title="Sound on/off">🔊</button></div>
+    <div class="levelbox" aria-label="Player level">
+      <div class="level-row"><span id="level-label"></span><span id="xp-text"></span></div>
+      <div class="xpbar"><div id="xp-fill"></div></div>
+    </div>
+    <div class="diff" id="diff" role="group" aria-label="Difficulty">
+      <button data-d="easy">🟢 Easy</button>
+      <button data-d="medium">🟡 Medium</button>
+      <button data-d="hard">🔴 Hard</button>
+    </div>
+    <p id="diff-info" class="diff-info"></p>
+    <p class="hint-label">Definition of the mystery word</p>
+    <p id="definition" class="definition"></p>
+    <p id="hint" class="hint" aria-live="polite"></p>
+    <p id="message" class="message" role="status" aria-live="polite"></p>
+
+    <div id="board" class="board" aria-label="Game board"></div>
+    <div id="keyboard" class="keyboard"></div>
+    <div class="controls">
+      <button id="hint-btn" class="ctrl">💡 Hint (−15)</button>
+      <button id="next-btn" class="ctrl">Next word ⏭</button>
+    </div>
+
+    <section id="sentence-panel" class="panel hidden">
+      <h2 id="result-title"></h2>
+      <p>The word was <strong id="answer"></strong>. Use it in a sentence:</p>
+      <textarea id="sentence" rows="3" placeholder="Write your sentence here..."></textarea>
+      <button id="submit-sentence">Submit sentence</button>
+      <button id="submit-anyway" class="hidden">Submit anyway</button>
+      <p id="sentence-feedback" class="message"></p>
+      <button id="new-game" class="hidden">Next word ⏭</button>
+    </section>
+
+    <section id="history" class="panel hidden">
+      <h2>Your sentences</h2>
+      <ul id="history-list"></ul>
+    </section>
+  </main>
+  <script src="words.js"></script>
+  <script src="valid.js"></script>
+  <script src="dict.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
